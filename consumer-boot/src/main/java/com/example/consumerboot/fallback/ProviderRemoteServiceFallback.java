@@ -7,6 +7,11 @@ import org.springframework.stereotype.Component;
 public class ProviderRemoteServiceFallback implements ProviderRemoteService {
     @Override
     public String selectInMysql(Integer userId) {
-        return "我是兜底数据";
+        return "我是'selectInMysql()'的兜底数据";
+    }
+
+    @Override
+    public String getHeaderToken(Integer userId, String userName) {
+        return "我是'getHeaderToken()'的兜底数据";
     }
 }
