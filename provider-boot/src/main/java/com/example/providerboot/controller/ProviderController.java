@@ -18,7 +18,7 @@ public class ProviderController {
 
     @GetMapping("/selectInMysql")
     public String selectInMysql(@RequestParam(value = "userid") Integer userId) {
-
+        System.out.println("Provider-boot:" + port+"，的机器被请求");
         return "在Provider-boot:" + port + "的机器上，经过Mysql的查找，已经成功找到userId = " + userId + "的数据。";
     }
 
