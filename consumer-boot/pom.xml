@@ -28,6 +28,12 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
 
+        <!--sentinel 核心环境 依赖-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+        </dependency>
+
         <!-- openFeign的消费者端需要引入的依赖 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

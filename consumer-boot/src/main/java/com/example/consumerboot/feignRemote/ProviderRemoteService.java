@@ -35,4 +35,8 @@ public interface ProviderRemoteService {
     @PostMapping("/database/getHeaderToken")
     String getHeaderToken(@RequestParam(value = "userid") Integer userId,
                           @RequestParam(value = "username") String userName);
+
+
+    @GetMapping("/database/sentinelServiceDegradation")
+    String sentinelServiceDegradation(@RequestParam(value = "userid") Integer userId);
 }

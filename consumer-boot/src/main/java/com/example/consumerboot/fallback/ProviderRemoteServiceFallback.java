@@ -17,6 +17,11 @@ public class ProviderRemoteServiceFallback implements ProviderRemoteService {
 
     @Override
     public String getHeaderToken(Integer userId, String userName) {
-        return "我是'getHeaderToken()'的兜底数据";
+        return "我是consumer-boot的Openfeign粗发的，fallback的'getHeaderToken()方法'的兜底数据";
+    }
+
+    @Override
+    public String sentinelServiceDegradation(Integer userId) {
+        return "我是consumer-boot的Openfeign粗发的，fallback的'sentinelServiceDegradation()方法'的兜底数据";
     }
 }

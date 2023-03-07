@@ -61,4 +61,18 @@ public class ConsumerController {
 
         return headerToken;
     }
+
+
+    /**
+     * 测试 Sentinel服务降级(数据兜底)
+     * 1、实现sentinel的流控规则，来触发sentinel的blockException
+     * 2、通过下游服务出现Exception异常来，来触发sentinel的fallback
+     */
+    @GetMapping("/testSentinelServiceDegradation/{userId}")
+    public String testSentinelServiceDegradation(@PathVariable("userId") Integer userId) {
+        String returnString = providerRemoteService.sentinelServiceDegradation(userId);
+        return returnString;
+    }
+
+
 }

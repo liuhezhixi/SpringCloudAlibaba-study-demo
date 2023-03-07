@@ -1,5 +1,9 @@
 package com.example.providerboot.controller;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import com.alibaba.fastjson.JSON;
+import com.example.providerboot.fallback.ProviderControllerFallback;
+import com.example.providerboot.handlerException.ProviderControllerHandlerException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,6 +43,23 @@ public class ProviderController {
         }
 
         return "在Provider-boot:" + port + "的机器上，通过testOpenfeignAndRibbonServiceDegradation()，已经成功找到userId = " + userId + "的数据。";
+    }
+
+    @GetMapping("/sentinelServiceDegradation")
+    @SentinelResource(
+            value = "sentinelServiceDegradation",
+            blockHandler = "sentinelServiceDegradationHandlerException",
+            blockHandlerClass = ProviderControllerHandlerException.class,
+            fallback = "sentinelServiceDegradationFallback",
+            fallbackClass = ProviderControllerFallback.class
+    )
+    public String sentinelServiceDegradation(@RequestParam(value = "userid") Integer userId) {
+        System.out.println("Provider-boot:" + port+"，的机器被请求");
+
+        //如果需要触发sentinel的fallback，需要打开下面的算数异常
+        int x = 1/0;
+
+        return "在Provider-boot:" + port + "的机器上，通过sentinelServiceDegradation()，已经成功找到userId = " + userId + "的数据。";
     }
 
 }
