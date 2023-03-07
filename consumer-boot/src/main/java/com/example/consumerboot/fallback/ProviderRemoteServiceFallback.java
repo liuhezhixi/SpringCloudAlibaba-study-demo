@@ -7,7 +7,12 @@ import org.springframework.stereotype.Component;
 public class ProviderRemoteServiceFallback implements ProviderRemoteService {
     @Override
     public String selectInMysql(Integer userId) {
-        return "我是'selectInMysql()'的兜底数据";
+        return "我是consumer-boot的Openfeign粗发的，fallback的'selectInMysql()方法'的兜底数据";
+    }
+
+    @Override
+    public String testOpenfeignAndRibbonServiceDegradation(Integer userId) {
+        return "我是consumer-boot的Openfeign粗发的，fallback的'testOpenfeignAndRibbonServiceDegradation()方法'的兜底数据";
     }
 
     @Override

@@ -14,6 +14,7 @@ public class ConsumerController {
     private ProviderRemoteService providerRemoteService;
 
     /**
+     * 测试Openfeign远程调用，以及服务降级(数据兜底)
      * 请求模版：
      * http://127.0.0.1:8301/user/select/88
      *
@@ -29,6 +30,19 @@ public class ConsumerController {
     }
 
     /**
+     * 测试 Openfeign结合Ribbon
+     * 1、实现指定下游服务的负载均衡(随机、轮询)
+     * 2、实现"请求处理超时时间"超时，触发服务降级
+     */
+    @GetMapping("/testOpenfeignAndRibbonServiceDegradation/{userId}")
+    public String testOpenfeignAndRibbonServiceDegradation(@PathVariable("userId") Integer userId) {
+        String returnString = providerRemoteService.testOpenfeignAndRibbonServiceDegradation(userId);
+        return returnString;
+    }
+
+    /**
+     * 测试Openfeign认证传递
+     *
      * http://127.0.0.1:8301/testOpenfeignAuthenticationTransfer
      * {
      * "userId": 100,
