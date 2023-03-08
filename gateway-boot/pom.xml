@@ -21,6 +21,7 @@
 
     <dependencies>
 
+        <!-- spring cloud alibaba nacos discovery 依赖 -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
@@ -31,16 +32,24 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-gateway</artifactId>
         </dependency>
-        <!--引入webflux-->
+
+        <!-- 单独使用 -->
+        <!-- sentinel gateway adapter 依赖 -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-webflux</artifactId>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-spring-cloud-gateway-adapter</artifactId>
         </dependency>
-        <!--gateway支持sentinel-->
-        <!--<dependency>-->
-        <!--    <groupId>com.alibaba.cloud</groupId>-->
-        <!--    <artifactId>spring-cloud-alibaba-sentinel-gateway</artifactId>-->
-        <!--</dependency>-->
+        <!-- 和 Sentinel Starter 配合使用 -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-alibaba-sentinel-gateway</artifactId>
+        </dependency>
+
+
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
