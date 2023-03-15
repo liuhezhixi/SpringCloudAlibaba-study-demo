@@ -59,6 +59,12 @@
         </dependency>
         <!-- openFeign的消费者端需要引入的依赖 -->
 
+        <!--Sentinel结合nacos实现存储规则-->
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-datasource-nacos</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
