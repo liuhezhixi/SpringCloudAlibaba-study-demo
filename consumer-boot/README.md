@@ -6,6 +6,17 @@ port:
 8301 ~ 8399
 # 延伸阅读
 实现效果：
-1、consumer-boot项目成功注册进入Nacos注册中心
-2、consumer-boot项目成功使用OpenFeign的远程调用，在nacos成功注册的provider-boot项目的指定接口
-3、consumer-boot项目成功使用OpenFeign的fallback兜底数据功能
+consumer-boot项目成功注册进入Nacos注册中心
+
+成功使用OpenFeign的远程调用，在nacos成功注册的provider-boot项目的指定接口
+成功使用OpenFeign的fallback兜底数据功能
+Openfeign结合Ribbon实现全局的下游服务的负载均衡(随机)
+Openfeign结合Ribbon实现指定下游服务的负载均衡(随机、轮询)
+Openfeign结合Ribbon实现当下游服务"请求处理超时时间"超时时候
+通过重写RequestInterceptor接口，并在@FeignClient的configuration中放入重写类，来实现Openfeign的单线程认证传递
+通过@RequestParam注释，实现Openfeign上游和下游服务的，参数对齐
+
+实现sentinel的流控规则，来触发sentinel的blockException
+通过下游服务出现Exception异常来，来触发sentinel的fallback
+成功使用Sentinel结合nacos，实现普通微服务的流控规则的持久化存储
+使用Sentinel结合nacos，实现普通微服务的降级规则的持久化存储
