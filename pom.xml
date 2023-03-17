@@ -5,6 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <packaging>pom</packaging>
+
+    <modules>
+        <module>consumer-boot</module>
+        <module>gateway-boot</module>
+        <module>provider-boot</module>
+        <module>nacos-boot</module>
+    </modules>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -72,6 +80,12 @@
                 <version>2.1.0.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.rocketmq</groupId>
+                        <artifactId>rocketmq-spring-boot-starter</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
         </dependencies>
     </dependencyManagement>

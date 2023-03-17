@@ -9,6 +9,7 @@ port:
 consumer-boot项目成功注册进入Nacos注册中心
 
 成功使用OpenFeign的远程调用，在nacos成功注册的provider-boot项目的指定接口
+成功使用OpenFeign的远程调用，在nacos成功注册的consumer-rocketmq-boot项目的指定接口
 成功使用OpenFeign的fallback兜底数据功能
 Openfeign结合Ribbon实现全局的下游服务的负载均衡(随机)
 Openfeign结合Ribbon实现指定下游服务的负载均衡(随机、轮询)
